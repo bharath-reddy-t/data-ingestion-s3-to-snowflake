@@ -1,0 +1,51 @@
+[2023-03-11T08:11:14.604+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: snf_dag.load_dept_table manual__2023-03-11T08:11:06.394173+00:00 [queued]>
+[2023-03-11T08:11:14.611+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: snf_dag.load_dept_table manual__2023-03-11T08:11:06.394173+00:00 [queued]>
+[2023-03-11T08:11:14.611+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-11T08:11:14.612+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2023-03-11T08:11:14.612+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-11T08:11:14.620+0000] {taskinstance.py:1300} INFO - Executing <Task(SnowflakeOperator): load_dept_table> on 2023-03-11 08:11:06.394173+00:00
+[2023-03-11T08:11:14.625+0000] {standard_task_runner.py:55} INFO - Started process 1024 to run task
+[2023-03-11T08:11:14.628+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'snf_dag', 'load_dept_table', 'manual__2023-03-11T08:11:06.394173+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/snf_dag.py', '--cfg-path', '/tmp/tmpdenqg0na']
+[2023-03-11T08:11:14.629+0000] {standard_task_runner.py:83} INFO - Job 43: Subtask load_dept_table
+[2023-03-11T08:11:14.679+0000] {task_command.py:388} INFO - Running <TaskInstance: snf_dag.load_dept_table manual__2023-03-11T08:11:06.394173+00:00 [running]> on host 1e740946fd0d
+[2023-03-11T08:11:14.721+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=snf_dag
+AIRFLOW_CTX_TASK_ID=load_dept_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-11T08:11:06.394173+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-11T08:11:06.394173+00:00
+[2023-03-11T08:11:14.722+0000] {sql.py:254} INFO - Executing: insert into departments values
+    (101, 'Sales'),
+    (102, 'Research'),
+    (103, 'Engineering');
+[2023-03-11T08:11:14.730+0000] {base.py:73} INFO - Using connection ID 'snowflake_default' for task execution.
+[2023-03-11T08:11:15.029+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/snowflake/connector/options.py:108: UserWarning: You have an incompatible version of 'pyarrow' installed (9.0.0), please install a version that adheres to: 'pyarrow<10.1.0,>=10.0.1; extra == "pandas"'
+  "pyarrow", installed_pyarrow_version, pandas_pyarrow_extra
+
+[2023-03-11T08:11:15.236+0000] {base.py:73} INFO - Using connection ID 'snowflake_default' for task execution.
+[2023-03-11T08:11:15.238+0000] {connection.py:287} INFO - Snowflake Connector for Python Version: 3.0.1, Python Version: 3.7.16, Platform: Linux-5.15.49-linuxkit-aarch64-with-debian-11.6
+[2023-03-11T08:11:15.238+0000] {connection.py:990} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2023-03-11T08:11:15.239+0000] {connection.py:1007} INFO - Setting use_openssl_only mode to False
+[2023-03-11T08:11:15.515+0000] {cursor.py:738} INFO - query: [ALTER SESSION SET autocommit=False]
+[2023-03-11T08:11:15.580+0000] {cursor.py:751} INFO - query execution done
+[2023-03-11T08:11:15.581+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-11T08:11:15.584+0000] {sql.py:375} INFO - Running statement: insert into departments values
+    (101, 'Sales'),
+    (102, 'Research'),
+    (103, 'Engineering');, parameters: None
+[2023-03-11T08:11:15.585+0000] {cursor.py:738} INFO - query: [insert into departments values (101, 'Sales'), (102, 'Research'), (103, 'Enginee...]
+[2023-03-11T08:11:15.942+0000] {cursor.py:751} INFO - query execution done
+[2023-03-11T08:11:15.943+0000] {sql.py:384} INFO - Rows affected: 3
+[2023-03-11T08:11:15.945+0000] {snowflake.py:391} INFO - Rows affected: 3
+[2023-03-11T08:11:15.945+0000] {snowflake.py:392} INFO - Snowflake query id: 01aadecb-0000-4f6a-0004-9dfe00015082
+[2023-03-11T08:11:15.946+0000] {cursor.py:738} INFO - query: [COMMIT]
+[2023-03-11T08:11:16.135+0000] {cursor.py:751} INFO - query execution done
+[2023-03-11T08:11:16.137+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-11T08:11:16.139+0000] {connection.py:586} INFO - closed
+[2023-03-11T08:11:16.189+0000] {connection.py:589} INFO - No async queries seem to be running, deleting session
+[2023-03-11T08:11:16.286+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=snf_dag, task_id=load_dept_table, execution_date=20230311T081106, start_date=20230311T081114, end_date=20230311T081116
+[2023-03-11T08:11:16.345+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-11T08:11:16.360+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

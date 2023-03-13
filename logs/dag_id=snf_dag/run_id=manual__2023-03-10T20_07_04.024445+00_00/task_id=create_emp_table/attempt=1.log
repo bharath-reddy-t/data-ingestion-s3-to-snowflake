@@ -1,0 +1,59 @@
+[2023-03-10T20:09:43.439+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: snf_dag.create_emp_table manual__2023-03-10T20:07:04.024445+00:00 [queued]>
+[2023-03-10T20:09:43.446+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: snf_dag.create_emp_table manual__2023-03-10T20:07:04.024445+00:00 [queued]>
+[2023-03-10T20:09:43.446+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-10T20:09:43.447+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2023-03-10T20:09:43.447+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-10T20:09:43.455+0000] {taskinstance.py:1300} INFO - Executing <Task(SnowflakeOperator): create_emp_table> on 2023-03-10 20:07:04.024445+00:00
+[2023-03-10T20:09:43.460+0000] {standard_task_runner.py:55} INFO - Started process 3467 to run task
+[2023-03-10T20:09:43.467+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'snf_dag', 'create_emp_table', 'manual__2023-03-10T20:07:04.024445+00:00', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/snf_dag.py', '--cfg-path', '/tmp/tmp__vsz0k7']
+[2023-03-10T20:09:43.468+0000] {standard_task_runner.py:83} INFO - Job 22: Subtask create_emp_table
+[2023-03-10T20:09:43.526+0000] {task_command.py:388} INFO - Running <TaskInstance: snf_dag.create_emp_table manual__2023-03-10T20:07:04.024445+00:00 [running]> on host 1e740946fd0d
+[2023-03-10T20:09:43.574+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=snf_dag
+AIRFLOW_CTX_TASK_ID=create_emp_table
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-10T20:07:04.024445+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-10T20:07:04.024445+00:00
+[2023-03-10T20:09:43.575+0000] {sql.py:254} INFO - Executing: create_employee_table
+[2023-03-10T20:09:43.583+0000] {base.py:73} INFO - Using connection ID 'snowflake_default' for task execution.
+[2023-03-10T20:09:43.928+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.7/site-packages/snowflake/connector/options.py:108: UserWarning: You have an incompatible version of 'pyarrow' installed (9.0.0), please install a version that adheres to: 'pyarrow<10.1.0,>=10.0.1; extra == "pandas"'
+  "pyarrow", installed_pyarrow_version, pandas_pyarrow_extra
+
+[2023-03-10T20:09:44.116+0000] {base.py:73} INFO - Using connection ID 'snowflake_default' for task execution.
+[2023-03-10T20:09:44.117+0000] {connection.py:287} INFO - Snowflake Connector for Python Version: 3.0.1, Python Version: 3.7.16, Platform: Linux-5.15.49-linuxkit-aarch64-with-debian-11.6
+[2023-03-10T20:09:44.117+0000] {connection.py:990} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2023-03-10T20:09:44.118+0000] {connection.py:1007} INFO - Setting use_openssl_only mode to False
+[2023-03-10T20:09:44.616+0000] {cursor.py:738} INFO - query: [ALTER SESSION SET autocommit=False]
+[2023-03-10T20:09:44.710+0000] {cursor.py:751} INFO - query execution done
+[2023-03-10T20:09:44.714+0000] {cursor.py:891} INFO - Number of results in first chunk: 1
+[2023-03-10T20:09:44.719+0000] {sql.py:375} INFO - Running statement: create_employee_table, parameters: None
+[2023-03-10T20:09:44.721+0000] {cursor.py:738} INFO - query: [create_employee_table]
+[2023-03-10T20:09:44.826+0000] {cursor.py:751} INFO - query execution done
+[2023-03-10T20:09:44.843+0000] {connection.py:586} INFO - closed
+[2023-03-10T20:09:45.000+0000] {connection.py:589} INFO - No async queries seem to be running, deleting session
+[2023-03-10T20:09:45.092+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/operators/sql.py", line 266, in execute
+    **extra_kwargs,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/snowflake/hooks/snowflake.py", line 379, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 380, in _run_command
+    cur.execute(sql_statement)
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/cursor.py", line 839, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/errors.py", line 294, in errorhandler_wrapper
+    error_value,
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.7/site-packages/snowflake/connector/errors.py", line 231, in default_errorhandler
+    cursor=cursor,
+snowflake.connector.errors.ProgrammingError: 001003 (42000): 01aadbf9-0000-4fb4-0004-9dfe0001402e: SQL compilation error:
+syntax error line 1 at position 0 unexpected 'create_employee_table'.
+[2023-03-10T20:09:45.123+0000] {taskinstance.py:1323} INFO - Marking task as UP_FOR_RETRY. dag_id=snf_dag, task_id=create_emp_table, execution_date=20230310T200704, start_date=20230310T200943, end_date=20230310T200945
+[2023-03-10T20:09:45.141+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 22 for task create_emp_table (001003 (42000): 01aadbf9-0000-4fb4-0004-9dfe0001402e: SQL compilation error:
+syntax error line 1 at position 0 unexpected 'create_employee_table'.; 3467)
+[2023-03-10T20:09:45.180+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-03-10T20:09:45.200+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,25 @@
+[2023-03-11T19:47:10.211+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: s3_to_snowflake.generate_file_wa manual__2023-03-11T19:47:07.098092+00:00 [queued]>
+[2023-03-11T19:47:10.219+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: s3_to_snowflake.generate_file_wa manual__2023-03-11T19:47:07.098092+00:00 [queued]>
+[2023-03-11T19:47:10.220+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-11T19:47:10.220+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 2
+[2023-03-11T19:47:10.221+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-11T19:47:10.233+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): generate_file_wa> on 2023-03-11 19:47:07.098092+00:00
+[2023-03-11T19:47:10.241+0000] {standard_task_runner.py:55} INFO - Started process 6812 to run task
+[2023-03-11T19:47:10.253+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 's3_to_snowflake', 'generate_file_wa', 'manual__2023-03-11T19:47:07.098092+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/s3_to_snowflake.py', '--cfg-path', '/tmp/tmpg6alrpwl']
+[2023-03-11T19:47:10.257+0000] {standard_task_runner.py:83} INFO - Job 80: Subtask generate_file_wa
+[2023-03-11T19:47:10.352+0000] {task_command.py:388} INFO - Running <TaskInstance: s3_to_snowflake.generate_file_wa manual__2023-03-11T19:47:07.098092+00:00 [running]> on host a2514c64f69a
+[2023-03-11T19:47:10.419+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=s3_to_snowflake
+AIRFLOW_CTX_TASK_ID=generate_file_wa
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-11T19:47:07.098092+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-11T19:47:07.098092+00:00
+[2023-03-11T19:47:11.415+0000] {base.py:73} INFO - Using connection ID 's3_conn' for task execution.
+[2023-03-11T19:47:11.416+0000] {connection_wrapper.py:334} INFO - AWS Connection (conn_id='s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2023-03-11T19:47:13.573+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-11T19:47:13.583+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=s3_to_snowflake, task_id=generate_file_wa, execution_date=20230311T194707, start_date=20230311T194710, end_date=20230311T194713
+[2023-03-11T19:47:13.635+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-03-11T19:47:13.656+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check
